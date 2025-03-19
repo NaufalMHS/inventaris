@@ -10,10 +10,8 @@ class CategoryController extends Controller
 {
     public function index(Request $request)
     {
-        // Ambil keyword pencarian jika ada
         $keyword = $request->input('cari');
 
-        // Query kategori dengan pencarian jika ada
         $categories = Category::when($keyword, function ($query, $keyword) {
             return $query->where('name', 'LIKE', "%$keyword%");
         })->paginate(10);

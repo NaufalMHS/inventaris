@@ -27,7 +27,7 @@ class ItemController extends Controller
     public function create()
     {
         $categories = Category::all();
-        $buildings = Building::with('rooms')->get(); // Load rooms sekaligus
+        $buildings = Building::with('rooms')->get(); 
         return view('admin.barang.create', compact('categories', 'buildings'));
     }
 
@@ -42,7 +42,7 @@ class ItemController extends Controller
         ]);
 
         $category = Category::findOrFail($request->category_id);
-        $code = Item::generateItemCode($category);  // Panggil metode statis ini
+        $code = Item::generateItemCode($category);  
 
         Item::create([
             'name' => $request->name,
@@ -50,7 +50,7 @@ class ItemController extends Controller
             'building_id' => $request->building_id,
             'room_id' => $request->room_id,
             'status' => $request->status,
-            'code' => $code,  // Sertakan kode yang sudah di-generate
+            'code' => $code,  
         ]);
 
         return redirect()->route('barang.index')->with('success', 'Barang berhasil ditambahkan.');
@@ -59,10 +59,10 @@ class ItemController extends Controller
 
     public function edit($id)
     {
-        $id = Crypt::decrypt($id); // Mendekripsi ID yang terenkripsi
-        $item = Item::findOrFail($id); // Mencari barang berdasarkan ID
-        $categories = Category::all(); // Mengambil semua kategori barang
-        $buildings = Building::with('rooms')->get(); // Mengambil gedung beserta ruangan-ruangannya
+        $id = Crypt::decrypt($id);
+        $item = Item::findOrFail($id); 
+        $categories = Category::all(); 
+        $buildings = Building::with('rooms')->get(); 
         
         return view('admin.barang.edit', compact('item', 'categories', 'buildings'));
     }

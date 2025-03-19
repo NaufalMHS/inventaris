@@ -21,6 +21,8 @@ use App\Http\Controllers\UserController;
 
 
 
+Route::get('/', [ItemController::class, 'dashboardStatistics'])->name('item.dashboard');
+
 Route::get('/admin-area', [ItemController::class, 'dashboardStatistics'])->name('item.dashboard');
 
 

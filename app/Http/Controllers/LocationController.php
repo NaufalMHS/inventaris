@@ -8,20 +8,17 @@ use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    // Menampilkan daftar gedung
     public function index()
     {
         $buildings = Building::all();
         return view('admin.lokasi.index', compact('buildings'));
     }
 
-    // Menampilkan form tambah gedung
     public function create()
     {
         return view('admin.lokasi.create');
     }
 
-    // Menyimpan gedung baru
     public function store(Request $request)
     {
         $request->validate([
@@ -34,7 +31,6 @@ class LocationController extends Controller
         return redirect()->route('lokasi.index')->with('success', 'Gedung berhasil ditambahkan!');
     }
 
-    // Menampilkan detail gedung dan daftar ruangannya
     public function show($id)
     {
         $building = Building::findOrFail($id);
@@ -43,14 +39,12 @@ class LocationController extends Controller
         return view('admin.lokasi.show', compact('building', 'rooms'));
     }
 
-    // Menampilkan form edit gedung
     public function edit($id)
     {
         $building = Building::findOrFail($id);
         return view('admin.lokasi.edit', compact('building'));
     }
 
-    // Mengupdate data gedung
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -64,7 +58,6 @@ class LocationController extends Controller
         return redirect()->route('lokasi.index')->with('success', 'Gedung berhasil diperbarui!');
     }
 
-    // Menghapus gedung
     public function destroy($id)
     {
         $building = Building::findOrFail($id);
