@@ -3,14 +3,14 @@
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
-        <span class="text-muted fw-light"><a href="" class="a-breadcrumbs">Beranda</a> /</span> Kategori Foto
+        <span class="text-muted fw-light"><a href="/" class="a-breadcrumbs">Beranda</a> /</span> Kategori 
     </h4>
 
     <div class="card">
         <h5 class="card-header">
             <div class="row mb-4">
                 <div class="col-md-6">
-                    Data Kategori Galeri
+                    Data Kategori
                     <a href="{{ route('kategori.create') }}" class="btn btn-primary btn-sm pl-4">Data Baru</a>
                 </div>
                 <div class="col-md-6 d-flex flex-row-reverse">

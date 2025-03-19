@@ -16,7 +16,6 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col">
-                        <!-- Nama Barang -->
                         <div class="mb-3 row">
                             <label class="col-md-3 col-form-label">Nama Barang</label>
                             <div class="col-md-9">
@@ -103,7 +102,6 @@
 </div>
 
 <script>
-    // Event listener untuk gedung
     document.getElementById('building').addEventListener('change', function() {
         let buildingId = this.value;
         if (buildingId) {
